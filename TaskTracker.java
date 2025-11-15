@@ -46,6 +46,12 @@ public class TaskTracker {
     }
 
     // List Tasks
+    public void listAllTasks(){
+        for(int i = 0; i < tasks.size(); i++){
+            System.out.println(tasks.get(i));
+        }
+    }
+
     public void listDoneTasks(){
         for(int i = 0; i < tasks.size(); i++){
             if(progress){
