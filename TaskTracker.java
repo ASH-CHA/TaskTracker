@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 public class TaskTracker {
     
+    // Add HashMap<Task, ProgressStatus>
     List<String> tasks;
     String task;
     boolean progress;
@@ -15,7 +16,7 @@ public class TaskTracker {
     // Edit Task
     public String add(String str){
         tasks.add(str);
-        return tasks.get(tasks.size() - 1);
+        return "Added \"" + tasks.get(tasks.size() - 1) + "\"";
     }
 
     public String delete(String str){
@@ -39,8 +40,27 @@ public class TaskTracker {
     }
 
     // Check Task
-    public String check(String str){
-        if(progress) return "Complete";
-        return "In Progress";
+    public void check(String str){
+        if(progress) System.out.println("Complete");
+        System.out.println("In Progress");
     }
+
+    // List Tasks
+    public void listDoneTasks(){
+        for(int i = 0; i < tasks.size(); i++){
+            if(progress){
+                System.out.println(tasks.get(i));
+            }
+        }
+    }
+
+    public void listNotDoneTasks(){
+        for(int i = 0; i < tasks.size(); i++){
+            if(!progress){
+                System.out.println(tasks.get(i));
+            }
+        }
+    }
+
+
 }
