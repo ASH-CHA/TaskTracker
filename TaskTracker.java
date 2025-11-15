@@ -1,34 +1,46 @@
-import java.util.Scanner;
+import java.util.List;
+import java.util.ArrayList;
 
 public class TaskTracker {
     
-    String msg;
+    List<String> tasks;
+    String task;
+    boolean progress;
+
     public TaskTracker(){
-        msg = new String();
+        tasks = new ArrayList<>();
+        task = new String();
     }
 
+    // Edit Task
     public String add(String str){
-        msg += str;
-        return msg;
+        tasks.add(str);
+        return tasks.get(tasks.size() - 1);
     }
 
     public String delete(String str){
-        msg.replaceAll(str, "");
-        return msg;
+        for(int i = 0; i < tasks.size(); i++){
+            if(tasks.get(i).equals(str)){
+                tasks.remove(i);
+                return "Task Deleted";
+            }
+        }
+        return "Task Not Nound - No Deletion Required";
     }
 
-    public void update(String str){
-        msg = str;
+    public String update(String str, String newTask){
+        for(int i = 0; i < tasks.size(); i++){
+            if(tasks.get(i).equals(str)){
+                tasks.get(i).replaceAll(str, newTask);
+                return "Task Updated";
+            }
+        }
+        return "Task Not Found - No Update Required";
     }
-    
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
 
-        System.out.println("What is your name?");
-        String ans = scan.nextLine();
-
-        System.out.println("Hello, " + ans);
-
-        scan.close();
+    // Check Task
+    public String check(String str){
+        if(progress) return "Complete";
+        return "In Progress";
     }
 }
