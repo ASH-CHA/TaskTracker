@@ -24,29 +24,31 @@ public class TaskTracker {
     }
 
     // Edit Task
-    public String add(String str){
+    public void add(String str){
         tasks.add(str);
-        return "Added \"" + tasks.get(tasks.size() - 1) + "\"";
+        System.out.println("Added \"" + tasks.get(tasks.size() - 1) + "\"");
     }
 
-    public String delete(String str){
+    public void delete(String str){
         for(int i = 0; i < tasks.size(); i++){
             if(tasks.get(i).equals(str)){
                 tasks.remove(i);
-                return "Task Deleted";
+                System.out.println("Task Deleted");
+                break;
             }
         }
-        return "Task Not Nound - No Deletion Required";
+        System.out.println("Task Not Nound - No Deletion Required");
     }
 
-    public String update(String str, String newTask){
+    public void update(String str, String newTask){
         for(int i = 0; i < tasks.size(); i++){
             if(tasks.get(i).equals(str)){
                 tasks.get(i).replaceAll(str, newTask);
-                return "Task Updated";
+                System.out.println("Task Updated");
+                break;
             }
         }
-        return "Task Not Found - No Update Required";
+        System.out.println("Task Not Found - No Update Required");
     }
 
     // Check Task
