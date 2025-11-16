@@ -1,12 +1,22 @@
 import java.util.List;
 import java.util.ArrayList;
+import java.time.LocalDateTime;
 
 public class TaskTracker {
     
+    // Revaluate all methods and instance variables [Keep variables under Task Properties]
     // Add HashMap<Task, ProgressStatus>
     List<String> tasks;
     String task;
     boolean progress;
+
+    // Task Properties
+    String id;
+    String description;
+    String[] status = new String[]{"todo", "in-progress", "done"};
+    LocalDateTime createdAt;
+    LocalDateTime updatedAt;
+
 
     public TaskTracker(){
         tasks = new ArrayList<>();
