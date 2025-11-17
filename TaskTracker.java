@@ -54,7 +54,7 @@ public class TaskTracker {
     // Check Task
     public void check(String str){
         if(progress) System.out.println("Complete");
-        System.out.println("In Progress");
+        else System.out.println("In Progress");
     }
 
     // List Tasks
