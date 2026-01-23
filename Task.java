@@ -1,3 +1,7 @@
+import java.util.HashMap;
+import java.util.Map;
+import java.time.LocalTime;
+
 public class Task {
 
     // Task Properties
@@ -27,12 +31,12 @@ public class Task {
     // Setter Methods
     public void setDescription(String description){
         this.description = description;
-        this.updatedAt = java.time.LocalTime.now().toString();
+        this.updatedAt = LocalTime.now().toString();
     }
 
     public void setStatus(String status){
         this.status = status;
-        this.updatedAt = java.time.LocalTime.now().toString();
+        this.updatedAt = LocalTime.now().toString();
     }
 
     @Override
@@ -41,5 +45,28 @@ public class Task {
     }
 
     // Manipulate tasks.json file
-    
+    public String toJson(){
+        return String.format(
+            "{\"id\":%d,\"description\":\"%s\",\"status\":\"%s\",\"createdAt\":\"%s\",\"updatedAt\":\"%s\"}",
+            id, description, status, createdAt, updatedAt
+        );
+    }
+
+    public static Task fromJson(String json){
+        Map<String, String> map = new HashMap<>();
+        json = json.replace("{", "").replace("}", "");
+
+        for(String pair : json.split(",")){
+            String[] kv = pair.split(":", 2);
+            map.put(kv[0].replace("\"", ""), kv[1].replace("\"", ""));
+        }
+
+        return new Task(
+            Integer.parseInt(map.get("id")),
+            map.get("description"),
+            map.get("status"),
+            map.get("createdAt"),
+            map.get("updatedAt")
+        );
+    }
 }
