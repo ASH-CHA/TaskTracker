@@ -16,4 +16,15 @@ public class TaskService {
         tasks.add(task);
         return task;
     }
+
+    public void update(int id, String description){
+        find(id).setDescription(description);
+    }
+
+    private Task find(int id){
+        return tasks.stream()
+                .filter(t -> t.getId() == id)
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("Task not found."));
+    }
 }
