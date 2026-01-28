@@ -1,4 +1,5 @@
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class TaskService {
@@ -28,6 +29,20 @@ public class TaskService {
     public void mark(int id, String status){
         find(id).setStatus(status);
     }
+
+    public List<Task> list(String filter){
+        if(filter == null) return tasks;
+
+        List<Task> result = new ArrayList<>();
+        for(Task task : tasks){
+            if(task.getStatus().equals(filter)){
+                result.add(task);
+            }
+        }
+        return result;
+    }
+
+    
 
     private Task find(int id){
         return tasks.stream()
