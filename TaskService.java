@@ -21,6 +21,14 @@ public class TaskService {
         find(id).setDescription(description);
     }
 
+    public void delete(int id){
+        tasks.remove(find(id));
+    }
+
+    public void mark(int id, String status){
+        find(id).setStatus(status);
+    }
+
     private Task find(int id){
         return tasks.stream()
                 .filter(t -> t.getId() == id)
