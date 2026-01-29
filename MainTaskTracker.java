@@ -19,6 +19,7 @@ public class MainTaskTracker {
                     break;
 
                 case "update":
+                    service.update(Integer.parseInt(args[1]), args[2]);
                     System.out.println("Task updated.");
                     break;
 
