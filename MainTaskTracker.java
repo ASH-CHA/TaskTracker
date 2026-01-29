@@ -40,6 +40,6 @@ public class MainTaskTracker {
             mark-in-progress <id>
             mark-done <id>
             list [todo|in-progress|done]
-                """);
+        """);
     }
 }
