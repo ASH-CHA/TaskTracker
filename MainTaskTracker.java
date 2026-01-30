@@ -23,6 +23,10 @@ public class MainTaskTracker {
                     System.out.println("Task updated.");
                     break;
 
+                case "delete":
+                    service.delete(Integer.parseInt(args[1]));
+                    break;
+
                 default:
                     printUsage();
             }
