@@ -25,6 +25,7 @@ public class MainTaskTracker {
 
                 case "delete":
                     service.delete(Integer.parseInt(args[1]));
+                    System.out.println("Task deleted.");
                     break;
 
                 default:
