@@ -33,6 +33,11 @@ public class MainTaskTracker {
                     System.out.println("Task marked in-progress.");
                     break;
 
+                case "mark-done":
+                    service.mark(Integer.parseInt(args[1]), "done");
+                    System.out.println("Task marked done.");
+                    break;
+
                 default:
                     printUsage();
             }
