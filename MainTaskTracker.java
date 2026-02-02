@@ -28,6 +28,11 @@ public class MainTaskTracker {
                     System.out.println("Task deleted.");
                     break;
 
+                case "mark-in-progress":
+                    service.mark(Integer.parseInt(args[1]), "in-progress");
+                    System.out.println("Task marked in-progress.");
+                    break;
+
                 default:
                     printUsage();
             }
