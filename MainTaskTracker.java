@@ -38,6 +38,13 @@ public class MainTaskTracker {
                     System.out.println("Task marked done.");
                     break;
 
+                case "list":
+                    String filter = (args.length > 1) ? args[1] : null;
+                    for(Task t : service.list(filter)){
+                        System.out.println(t);
+                    }
+                    break;
+
                 default:
                     printUsage();
             }
