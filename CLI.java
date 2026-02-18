@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class MainTaskTracker {
+public class CLI {
     
     public static void main(String[] args) {
         if(args.length == 0){
